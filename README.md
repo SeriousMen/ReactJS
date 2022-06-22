@@ -1,12 +1,12 @@
 
-#리액트 기본 구조 
-[node_modules]
+# 리액트 기본 구조 
+## [node_modules]
     프로젝트 구동에 필요한 모든 라이브러리 소스 코드를 모아 놓은 폴더 
 
-[public]
+## [public]
     html, 이미지 같은거 보관하고 싶을 때 (static 폴더)
 
-[src]
+## [src]
     여기서 코드 작성
     .js 에서 jsx 문법으로 작성한 것을 index.html에다가 index.js가 집어 넣도록 설정해놓았다.
 
@@ -34,7 +34,7 @@
             대체했었다. 단점은 컴포넌트들이 많아 짐으로서 래퍼 컴포넌트가 너무 많아 코드가 지저분해진다는 것 
 
        ### https://youtube.com/watch?v=C26vJqelKlA&feature=share 참고
-       
+
     - utils 폴더 생성
         유틸 함수들을 모아둔 폴더  
         ex) 유효성 검사, 점수 계산 등등 재 사용할 함수들 
@@ -42,7 +42,10 @@
     - store 폴더 생성
         redux를 정의 해놓은 폴더 
 
-[package.json]
+    - styles 폴더 생성
+        .CSS 모음
+
+## [package.json]
     프로젝트 정보같은 것이 명시되어 있는 폴더
     ex. 프로젝트 명, 의존성 등등 
 
