@@ -15,11 +15,11 @@ function App({history}) {
       <BrowserView>
         데스크톱 브라우저 !
 
-              <button onClick={history.push("/login")}>로그인하기</button>
+              <button onClick={history.push("/Login")}>로그인하기</button>
 
 
           <Routes>
-           <Route path="/login" element={<Login/>}/>
+           <Route path="/Login" element={<Login/>}/>
           </Routes>
 
       </BrowserView>

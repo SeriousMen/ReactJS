@@ -5,14 +5,18 @@ import App from './App';
 import TestClassComp from './testComponents/TestClassComp';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
+import Main from './pages/Main';
+
 //<App/> 이런식으로 하는게 JSX를 이용해 컴포넌트를 사용하는 것
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //ctl+alt+L 자동정렬
 root.render(
     <BrowserRouter>
         <React.StrictMode>
-            {/*<App/>*/}
-            <TestClassComp/>
+            
+            {/* <App/> */}
+            {/* <TestClassComp/> */}
+            <Main/>
         </React.StrictMode>
     </BrowserRouter>
 );

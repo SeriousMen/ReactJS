@@ -1,0 +1,10 @@
+.Main{
+    text-align: center;
+}
+
+.black-nav{
+    display:block;
+    background-color: black;
+    color: azure;
+
+}
