@@ -3,8 +3,17 @@
 }
 
 .black-nav{
-    display:block;
+    display:flex;
     background-color: black;
     color: azure;
+    padding-left: 10px;
+}
+div{
+    box-sizing: border-box;
+}
 
+.list{
+    padding-left:  20px;
+    text-align: center;
+    border-bottom: 1px solid green;
 }
