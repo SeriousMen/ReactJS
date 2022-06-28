@@ -67,15 +67,42 @@ function Main(){
                     <span onClick={()=>{set따봉(따봉+1)}}>👍</span>{따봉}
                 </h4> 
             </div>
-
+                {/* 이런 반복되는 list들을 컴포넌트로 만들자 */}
             <div className="list">
                 <h4>{post}</h4>
                 <p>~발행 </p>
                 <h4>{글제목[1]}</h4>
             </div>
             
+            {/* 컴포넌트들을 언제 쓸까?
+            1. 반복적인 html
+            2. 큰 페이지들
+            3. 자주 변경되는 것들
+             */}
+            <Modal/>
+            
         </div>       
     );
 }
 
+// 아래 처럼 함수를 변수에 담아서 생성해도 된다.
+// 보통 const로 만든다.
+// 이유는 const로 만들면, 실수로 해당 변수명을 사용하면
+// 이미 있다라고 경고가 나온다.
+// const Modal = () => {} 
+
+
+//함수는 함수 밖에서 선언 
+function Modal(){
+//컴포넌트 작명을 할 때는 앞에 대문자로 시작하는 것이 룰
+    return(
+        <div className ="modal">
+                <h4>제목</h4>
+                <p>날짜</p>
+                <p>상세내용</p>
+        </div>
+    )
+}
+
+//export 여러개 하는거 알기
 export default Main;
