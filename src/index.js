@@ -16,9 +16,9 @@ root.render(
         <React.StrictMode>
             
             {/* <App/> */}
-            {/* <TestClassComp/> */}
+            <TestClassComp/>
             {/* <Main/> */}
-            <TestState/>
+            {/* <TestState/> */}
         </React.StrictMode>
     </BrowserRouter>
 );
