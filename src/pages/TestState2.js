@@ -7,10 +7,10 @@ const changMyname = ()=>{
     setMyName("하이2");
 }
 
-useEffect(()=>{
-    console.log("여기도 변경");
-    setMyName(props.myName);
-})
+// useEffect(()=>{
+//     console.log("여기도 변경");
+//     setMyName(props.myName);
+// },[props])
 return <>
     <div>
       

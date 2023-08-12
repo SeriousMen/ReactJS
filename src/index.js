@@ -1,4 +1,5 @@
 import React from 'react';
+// import ReactDOM from 'react-dom';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -7,20 +8,52 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import Main from './pages/Main';
 import TestState from './pages/TestState';
+import ReduxTest from './testComponents/ReduxTest';
 
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 //<App/> 이런식으로 하는게 JSX를 이용해 컴포넌트를 사용하는 것
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+const weight = 100;
+
+// action을 통해 state 수정방법 정의 
+
+function reducer(state = weight , action){
+    if (action.type === '증가'){
+        state ++; 
+        return state;
+    } else if(action.type === '감소'){
+        state --;
+        return state  ;         
+    }
+    return state
+};
+
+let store = createStore(reducer);
+
+const root = document.getElementById('root');
 //ctl+alt+L 자동정렬
-root.render(
-    <BrowserRouter>
-        <React.StrictMode>
-            
-            {/* <App/> */}
-            <TestClassComp/>
-            {/* <Main/> */}
-            {/* <TestState/> */}
-        </React.StrictMode>
-    </BrowserRouter>
+//react v 18 부터는 ReactDOM.render를 지원하지 않고 createRoot()를 쓰는 것을 권장함 
+// ReactDOM.render(
+//         <React.StrictMode>
+//         <Provider store={store}>    
+//             {/* <App/> */}
+//             {/* <TestClassComp/> */}
+//             {/* <Main/> */}
+//             {/* <TestState/> */}
+//             <ReduxTest/>
+//         </Provider>
+//         </React.StrictMode>
+//     ,root
+// );
+
+ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+        <Provider store={store}>
+        {/* <ReduxTest/> */}
+        <TestState/>
+        </Provider>
+    </React.StrictMode>
 );
 
 //src 폴더에 포함되어 있다. 메인이다. 이곳에서 HTML 템플릿 과 javascript 컴포넌트를 조합해서 렌더링하고 표시한다.
