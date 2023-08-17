@@ -9,15 +9,17 @@ import {BrowserRouter} from "react-router-dom";
 import Main from './pages/Main';
 import TestState from './pages/TestState';
 import ReduxTest from './testComponents/ReduxTest';
-
+import WrappedComponent from './testComponents/WrappedComponent';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
+import Store from './configurationStore/Store';
 //<App/> 이런식으로 하는게 JSX를 이용해 컴포넌트를 사용하는 것
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 const weight = 100;
 
-// action을 통해 state 수정방법 정의 
 
+//reducer는 store안에 있는 값을 어떻게 바꿀 것인지에 대한 함수 
+// action을 통해 state 수정방법 정의 
 function reducer(state = weight , action){
     if (action.type === '증가'){
         state ++; 
@@ -29,7 +31,7 @@ function reducer(state = weight , action){
     return state
 };
 
-let store = createStore(reducer);
+let store = Store(reducer);
 
 const root = document.getElementById('root');
 //ctl+alt+L 자동정렬
@@ -51,7 +53,9 @@ ReactDOM.createRoot(root).render(
     <React.StrictMode>
         <Provider store={store}>
         {/* <ReduxTest/> */}
-        <TestState/>
+        {/* <TestClassComp/> */}
+        {/* <TestState/>  */}
+        <WrappedComponent/>
         </Provider>
     </React.StrictMode>
 );

@@ -56,6 +56,17 @@
     - props 문법을 사용안하므로서 복잡성, 유지보수 능률 
     상위 컴포넌트 -> 하위 컴포넌트 -> 하위 컴포넌트 이런식으로 
     state를 props로 전송하는데 복잡하고 문제가 생겼을 시 원인 파악이 힘듦 , store를 통하여 props없이 관리해서 전달한다.
-
+    --> props으로 전달하는 방식이 유선방식이라면 redux를 사용한 방식은 무선방식이라고 볼 수 있다.
     - state 변경 관리를 위해 사용 
     컴포넌트안에서 state를 이용해 변경을 하는데 버그가 발생했을 시 뭐가 문제인지 파악이 힘들다. 그래서 redux는 store.js에서 state 수정방법을 정의 해놓고, 컴포넌트에서는 요청만 한다.
+
+redux의 주요 컴포넌트, 함수
+- createStore : 전역상태를 가지고 있는 store를 생성하는 함수 , 함수(reducer)를 인자로 받는다.  
+- Provider : redux store에 접근할 수 있도록 해주는 컴포넌트 , 하위 컴포넌트들이 store에 접근할 수 있도록 해준다. 기존의 props전달하는 것처럼
+             Provider에 store를 넣어줘서 전달시켜준다.
+- useSelector : 하위컴포넌트에서 상위컴포넌트의 store안에 있는 state에 접근할 수 있도록 해주는 함수
+- useDispatch : 하위컴포넌트에서 액션을 상위컴포넌트의 store에게 전달할 수 있도록 해주는 함수 
+- connect : useSelector + useDispatch 사용 이전, 이전에 대체할때 사용?
+
+사용자 정의 함수
+- reducer : store안에 있는 state를 변경하는 방법에 대해 정의되어있고 그 값을 리턴해주는 함수 
