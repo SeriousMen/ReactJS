@@ -10,24 +10,59 @@ import Main from './pages/Main';
 import TestState from './pages/TestState';
 import ReduxTest from './testComponents/ReduxTest';
 import WrappedComponent from './testComponents/WrappedComponent';
+import WrappingComponent from './containers/WrappingComponent';
 import { Provider } from 'react-redux';
 // import { createStore } from 'redux';
 import Store from './configurationStore/Store';
 //<App/> 이런식으로 하는게 JSX를 이용해 컴포넌트를 사용하는 것
 // const root = ReactDOM.createRoot(document.getElementById('root'));
-const weight = 100;
+// const weight = 100;
+const storeState = {
+    weight : 100,
+    boardTitle : ''
+};
 
 
 //reducer는 store안에 있는 값을 어떻게 바꿀 것인지에 대한 함수 
 // action을 통해 state 수정방법 정의 
-function reducer(state = weight , action){
-    if (action.type === '증가'){
-        state ++; 
-        return state;
-    } else if(action.type === '감소'){
-        state --;
-        return state  ;         
+function reducer(state = storeState , action){
+    switch(action.type){
+        case  '증가':
+            state = {...state, weight : ++state.weight };   
+        break;
+
+        case '감소' :
+            state = {...state, weight : --state.weight};
+        break; 
+
+        case '중고게시판' :
+            state = {...state, boardTitle : '중고'};
+        break;
+
+        case '경매게시판' :
+            state = {...state, boardTitle : '경매'};
+        break;
     }
+    // if (action.type === '증가'){  
+       
+    //     state = {...state, weight : ++state.weight };  
+      
+    //     return state;
+    // } else if(action.type === '감소'){
+        
+    //     state = {...state, weight : --state.weight};
+    
+    //     // state --;
+    //     return state  ;         
+    // } else if(action.type === '중고게시판'){
+
+    //     state = {...state, boardTitle : '중고'}
+    //     return state ;
+    // } else if(action.type === '경매게시판'){
+
+    //     state = {...state, boardTitle : '경매'}
+    //     return state;
+    // }
     return state
 };
 
@@ -55,7 +90,8 @@ ReactDOM.createRoot(root).render(
         {/* <ReduxTest/> */}
         {/* <TestClassComp/> */}
         {/* <TestState/>  */}
-        <WrappedComponent/>
+        {/* <WrappedComponent/> */}
+        <WrappingComponent/>
         </Provider>
     </React.StrictMode>
 );
