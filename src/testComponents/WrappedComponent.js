@@ -1,11 +1,12 @@
 import React from "react";
+import useTodos from '../hooks/useTodos';
 // import { useSelector,useDispatch } from "react-redux";
 
-const WrappedComponent =({state, dispatch}) => {
-
+// const WrappedComponent =({state, dispatch}) => {
+const WrappedComponent =() =>{
 //     const state = useSelector((state) => state);
 //     const dispatch = useDispatch(); 
-
+                const {state, dispatch} = useTodos();
 
         return(
         
